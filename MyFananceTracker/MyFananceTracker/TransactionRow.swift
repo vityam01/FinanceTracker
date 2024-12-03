@@ -20,7 +20,7 @@ struct TransactionRow: View {
                     .font(.subheadline)
             }
             Spacer()
-            Text("\(transaction.amount, specifier: "%.2f") ₴")
+            Text("\(transaction.amount, specifier: "%.2f") $")
                 .foregroundColor(transaction.type == .income ? .green : .red)
         }
     }

@@ -47,9 +47,9 @@ struct StatisticsView: View {
             Spacer()
             // Totals
             VStack {
-                Text("Total Income: \(viewModel.totalIncome, specifier: "%.2f") ₴")
+                Text("Total Income: \(viewModel.totalIncome, specifier: "%.2f") $")
                     .foregroundColor(.green)
-                Text("Total Expenses: \(viewModel.totalExpenses, specifier: "%.2f") ₴")
+                Text("Total Expenses: \(viewModel.totalExpenses, specifier: "%.2f") $")
                     .foregroundColor(.red)
             }
         }

@@ -49,7 +49,7 @@ struct ContentView: View {
 private extension ContentView {
     // Balance View
     var balanceView: some View {
-        Text("Balance: \(viewModel.totalBalance, specifier: "%.2f") ₴")
+        Text("Balance: \(viewModel.totalBalance, specifier: "%.2f") $")
             .font(.title)
             .padding()
     }
