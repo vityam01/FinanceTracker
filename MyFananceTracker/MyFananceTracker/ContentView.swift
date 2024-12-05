@@ -13,33 +13,44 @@ struct ContentView: View {
     @State private var editingTransaction: Transaction? = nil
     
     var body: some View {
-        NavigationView {
-            VStack {
-                balanceView
-                
-                actionButtons
-                
-                transactionList
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            NavigationStack {
+                mainContentUI()
             }
-            .navigationTitle("Finance")
-            .sheet(isPresented: $viewModel.isAddingIncome) {
-                AddTransactionView(viewModel: viewModel, type: Transaction.TransactionType.income)
+        } else {
+            NavigationView {
+                mainContentUI()
             }
-            .sheet(isPresented: $viewModel.isAddingExpense) {
-                AddTransactionView(viewModel: viewModel, type: Transaction.TransactionType.expense)
-            }
-            .sheet(item: $editingTransaction) { transaction in
-                AddTransactionView(viewModel: viewModel, transactionToEdit: transaction)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: StatisticsView()) {
-                        Text("Statistic")
-                            .padding()
-                            .background(Color.gray)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }
+        }
+    }
+    
+    
+    private func mainContentUI() -> some View {
+        VStack {
+            balanceView
+            
+            actionButtons
+            
+            transactionList
+        }
+        .navigationTitle("Finance")
+        .sheet(isPresented: $viewModel.isAddingIncome) {
+            AddTransactionView(viewModel: viewModel, type: Transaction.TransactionType.income)
+        }
+        .sheet(isPresented: $viewModel.isAddingExpense) {
+            AddTransactionView(viewModel: viewModel, type: Transaction.TransactionType.expense)
+        }
+        .sheet(item: $editingTransaction) { transaction in
+            AddTransactionView(viewModel: viewModel, transactionToEdit: transaction)
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(destination: StatisticsView()) {
+                    Text("Statistic")
+                        .padding()
+                        .background(Color.gray)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                 }
             }
         }

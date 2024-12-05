@@ -17,6 +17,9 @@ struct StatisticsView: View {
 
     var body: some View {
         VStack {
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                Spacer()
+            }
             Text("Statistics")
                 .font(.largeTitle)
                 .padding()
@@ -31,19 +34,34 @@ struct StatisticsView: View {
             }
             .padding()
 
-            // Pie Chart
-            Chart {
-                ForEach(viewModel.expensesByCategory, id: \.key) { category, total in
-                    SectorMark(
-                        angle: .value("Expenses", total),
-                        innerRadius: .ratio(0.5),
-                        outerRadius: .ratio(1.0)
-                    )
-                    .foregroundStyle(by: .value("Category", category))
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                Chart {
+                    ForEach(viewModel.expensesByCategory, id: \.key) { category, total in
+                        SectorMark(
+                            angle: .value("Expenses", total),
+                            innerRadius: .ratio(0.5),
+                            outerRadius: .ratio(1.0)
+                        )
+                        .foregroundStyle(by: .value("Category", category))
+                        .symbolSize(by: .value("Category", category))
+                    }
                 }
+                .padding()
+                .frame(height: 800)
+            } else {
+                Chart {
+                    ForEach(viewModel.expensesByCategory, id: \.key) { category, total in
+                        SectorMark(
+                            angle: .value("Expenses", total),
+                            innerRadius: .ratio(0.5),
+                            outerRadius: .ratio(1.0)
+                        )
+                        .foregroundStyle(by: .value("Category", category))
+                    }
+                }
+                .padding()
             }
-            .padding()
-
+            
             Spacer()
             // Totals
             VStack {
@@ -51,6 +69,9 @@ struct StatisticsView: View {
                     .foregroundColor(.green)
                 Text("Total Expenses: \(viewModel.totalExpenses, specifier: "%.2f") $")
                     .foregroundColor(.red)
+            }
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                Spacer()
             }
         }
         .padding()
