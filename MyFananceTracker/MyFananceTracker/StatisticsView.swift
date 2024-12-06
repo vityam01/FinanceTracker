@@ -43,7 +43,6 @@ struct StatisticsView: View {
                             outerRadius: .ratio(1.0)
                         )
                         .foregroundStyle(by: .value("Category", category))
-                        .symbolSize(by: .value("Category", category))
                     }
                 }
                 .padding()

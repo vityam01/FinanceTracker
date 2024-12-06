@@ -117,6 +117,9 @@ struct AddTransactionView: View {
                         .cornerRadius(8)
                 }
             }
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                Spacer()
+            }
         }
         .navigationTitle(transactionToEdit == nil ? "Add Transaction" : "Edit Transaction")
     }
