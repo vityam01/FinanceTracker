@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import UIKit
+import FBSDKCoreKit
+
 
 @main
 struct MyFananceTrackerApp: App {
@@ -25,5 +28,27 @@ struct MyFananceTrackerApp: App {
             }
         }
     }
-}
+    
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+                     ) -> Bool
+    {
+      Settings.shared.appID = "1146626893836078"
 
+      ApplicationDelegate.shared.application(application,didFinishLaunchingWithOptions: launchOptions)
+      return true
+    }
+    
+
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey : Any] = [:]
+                     ) -> Bool
+    {
+      ApplicationDelegate.shared.application(app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+        annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+      )
+    }
+    
+    
+}

@@ -16,9 +16,9 @@ class WebViewModel: ObservableObject {
 
     func fetchWebViewData() {
         let packageName = "com.financeapp.myfinancetracker"
-        let appName = "Expense Finance Calculator"
+        let appName = "ExpenseFinanceCalculator"
         let apiKey = "azewPB4bzAd5uSjlJPCTcxwau2i1zvM"
-        let urlString = "https://g7-crm.com/rest/application/ios?id=packagename(\(packageName))&name=\(appName)&key=\(apiKey)"
+        let urlString = "https://g7-crm.com/rest/application/ios?id=\(packageName)&name=\(appName)&key=\(apiKey)"
 
         print("Requesting URL: \(urlString)")
 

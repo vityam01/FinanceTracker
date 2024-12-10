@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		605C44CC2CF71F9F00D89E2A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 605C44CB2CF71F9F00D89E2A /* RealmSwift */; };
+		607DBC512D083B6D0031ADB9 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 607DBC502D083B6D0031ADB9 /* FacebookCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				605C44CC2CF71F9F00D89E2A /* RealmSwift in Frameworks */,
+				607DBC512D083B6D0031ADB9 /* FacebookCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +73,7 @@
 			name = MyFananceTracker;
 			packageProductDependencies = (
 				605C44CB2CF71F9F00D89E2A /* RealmSwift */,
+				607DBC502D083B6D0031ADB9 /* FacebookCore */,
 			);
 			productName = MyFananceTracker;
 			productReference = 605C44AF2CF7194C00D89E2A /* MyFananceTracker.app */;
@@ -102,6 +105,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				605C44CA2CF71F9F00D89E2A /* XCRemoteSwiftPackageReference "realm-swift" */,
+				607DBC4F2D08391F0031ADB9 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 605C44B02CF7194C00D89E2A /* Products */;
@@ -259,7 +263,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"MyFananceTracker/Preview Content\"";
 				DEVELOPMENT_TEAM = S7Y7Q3NQD5;
 				ENABLE_PREVIEWS = YES;
@@ -269,11 +273,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.financeapp.myfinancetracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -288,7 +293,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"MyFananceTracker/Preview Content\"";
 				DEVELOPMENT_TEAM = S7Y7Q3NQD5;
 				ENABLE_PREVIEWS = YES;
@@ -298,11 +303,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.financeapp.myfinancetracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -343,6 +349,14 @@
 				kind = branch;
 			};
 		};
+		607DBC4F2D08391F0031ADB9 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -350,6 +364,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 605C44CA2CF71F9F00D89E2A /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		607DBC502D083B6D0031ADB9 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 607DBC4F2D08391F0031ADB9 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
