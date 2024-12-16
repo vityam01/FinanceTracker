@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>FacebookClientToken</key>
+	<string>4e0e5e58561d6c21c7864355404e6e96</string>
 	<key>CFBundleURLSchemes</key>
 	<string>fb577774294869089</string>
 	<key>FacebookAdvertiserIDCollectionEnabled</key>
@@ -12,7 +14,7 @@
 	<array>
 		<string>fbshareextension</string>
 		<string>fbauth2</string>
-		<string>fb-messenger-share-api</string>
+		<string>fb-messenger-api</string>
 		<string>fbapi</string>
 	</array>
 	<key>FacebookAppID</key>
