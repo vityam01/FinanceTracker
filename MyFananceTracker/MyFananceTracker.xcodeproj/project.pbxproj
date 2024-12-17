@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		602C66072D099598007F00CC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 602C66062D099598007F00CC /* RealmSwift */; };
 		602C66642D0AE838007F00CC /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 602C66062D099598007F00CC /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		605B51332D0994B20009B074 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 605B51322D0994B20009B074 /* FacebookCore */; };
+		6067ADBF2D118EB9000A71E2 /* FacebookAEM in Frameworks */ = {isa = PBXBuildFile; productRef = 6067ADBE2D118EB9000A71E2 /* FacebookAEM */; };
+		6067ADC12D118EB9000A71E2 /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = 6067ADC02D118EB9000A71E2 /* FacebookBasics */; };
+		6067ADC32D118EB9000A71E2 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6067ADC22D118EB9000A71E2 /* FacebookCore */; };
+		6067ADC52D118EB9000A71E2 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 6067ADC42D118EB9000A71E2 /* FacebookLogin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,8 +61,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6067ADC52D118EB9000A71E2 /* FacebookLogin in Frameworks */,
+				6067ADC12D118EB9000A71E2 /* FacebookBasics in Frameworks */,
+				6067ADBF2D118EB9000A71E2 /* FacebookAEM in Frameworks */,
 				602C66072D099598007F00CC /* RealmSwift in Frameworks */,
-				605B51332D0994B20009B074 /* FacebookCore in Frameworks */,
+				6067ADC32D118EB9000A71E2 /* FacebookCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,8 +147,8 @@
 			mainGroup = 605C44A62CF7194C00D89E2A;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				605B51312D0994B20009B074 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 				602C66032D099598007F00CC /* XCRemoteSwiftPackageReference "realm-swift" */,
+				6067ADBD2D118EB9000A71E2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 605C44B02CF7194C00D89E2A /* Products */;
@@ -300,9 +306,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"MyFananceTracker/Preview Content\"";
-				DEVELOPMENT_TEAM = H769L7828P;
+				DEVELOPMENT_TEAM = S7Y7Q3NQD5;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -316,7 +322,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.financeapp.myfinancetracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -331,9 +337,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"MyFananceTracker/Preview Content\"";
-				DEVELOPMENT_TEAM = H769L7828P;
+				DEVELOPMENT_TEAM = S7Y7Q3NQD5;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -347,7 +353,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.financeapp.myfinancetracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -388,12 +394,12 @@
 				kind = branch;
 			};
 		};
-		605B51312D0994B20009B074 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+		6067ADBD2D118EB9000A71E2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/facebook/facebook-ios-sdk.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 14.1.0;
+				minimumVersion = 17.4.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -404,10 +410,25 @@
 			package = 602C66032D099598007F00CC /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
-		605B51322D0994B20009B074 /* FacebookCore */ = {
+		6067ADBE2D118EB9000A71E2 /* FacebookAEM */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 605B51312D0994B20009B074 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			package = 6067ADBD2D118EB9000A71E2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookAEM;
+		};
+		6067ADC02D118EB9000A71E2 /* FacebookBasics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6067ADBD2D118EB9000A71E2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookBasics;
+		};
+		6067ADC22D118EB9000A71E2 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6067ADBD2D118EB9000A71E2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookCore;
+		};
+		6067ADC42D118EB9000A71E2 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6067ADBD2D118EB9000A71E2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

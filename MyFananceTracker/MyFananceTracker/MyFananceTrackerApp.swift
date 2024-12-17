@@ -8,17 +8,13 @@
 import SwiftUI
 import UIKit
 import FBSDKCoreKit
-import FacebookCore
-import FacebookAEM
 import AppTrackingTransparency
-import AdSupport
 
 @main
 struct MyFinanceTrackerApp: App {
     @StateObject private var viewModel = WebViewModel()
-    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+
     var body: some Scene {
         WindowGroup {
             Group {
@@ -29,11 +25,36 @@ struct MyFinanceTrackerApp: App {
                 }
             }
             .onAppear {
-                requestTrackingPermission()
+                showATTAlert()
                 viewModel.fetchWebViewData()
             }
         }
     }
+    
+    private func showATTAlert() {
+        if #available(iOS 14, *) {
+            let status = ATTrackingManager.trackingAuthorizationStatus
+            if status != .authorized {
+                let alert = UIAlertController(
+                    title: "Enable Tracking",
+                    message: "We use tracking to provide a better experience and personalized ads. Please allow tracking to support our app's development.",
+                    preferredStyle: .alert
+                )
+                alert.addAction(UIAlertAction(title: "Allow", style: .default, handler: { _ in
+                    requestTrackingPermission()
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                
+                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                   let rootVC = windowScene.windows.first?.rootViewController {
+                    rootVC.present(alert, animated: true, completion: nil)
+                }
+            } else {
+                print("Tracking permission already determined: \(status.rawValue)")
+            }
+        }
+    }
+
     
     private func requestTrackingPermission() {
         if #available(iOS 14, *) {
@@ -41,34 +62,32 @@ struct MyFinanceTrackerApp: App {
                 switch status {
                 case .authorized:
                     print("Tracking authorized.")
-                case .denied:
-                    print("Tracking denied.")
-                case .restricted:
-                    print("Tracking restricted.")
+                case .denied, .restricted:
+                    print("Tracking denied or restricted.")
                 case .notDetermined:
                     print("Tracking not determined.")
                 @unknown default:
-                    print("Unknown tracking status.")
+                    print("Unknown ATT status.")
                 }
             }
-        } else {
-            print("ATT is not available on this iOS version.")
         }
     }
 }
 
 // MARK: - AppDelegate for Facebook SDK Integration
 class AppDelegate: NSObject, UIApplicationDelegate {
-    func application( _ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        print("Facebook SDK initialized.")
         return true
     }
 
-    func application( _ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         return ApplicationDelegate.shared.application(
             app,
             open: url,
             sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-            annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+        )
     }
 }
